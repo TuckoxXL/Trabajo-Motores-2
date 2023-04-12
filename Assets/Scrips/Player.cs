@@ -20,12 +20,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalforce = Input.GetAxis("Horizontal") * Forcemultiplier;
+        //float horizontalforce = Input.GetAxis("Horizontal") * Forcemultiplier;
         //float verticalforce = Input.GetAxis("Vertical") * Forcemultiplier;
 
-        horizontalforce *= Time.deltaTime;
+        //horizontalforce *= Time.deltaTime;
         //verticalforce *= Time.deltaTime;
-        transform.Translate(horizontalforce, 0, 0);
+        //transform.Translate(horizontalforce, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.Space) && canjump)
         {
@@ -41,5 +41,12 @@ public class Player : MonoBehaviour
         {
             canjump = true;
         }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            
+        }
     }
+
+
 }

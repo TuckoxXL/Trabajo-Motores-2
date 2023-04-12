@@ -17,12 +17,12 @@ public class Spawner : MonoBehaviour
         StartCoroutine(spawnObstaculo(Random.Range(mintiempoSpawn, maxtiempoSpawn), objetoAspawnear));
     }
 
-    ArrayList Enemy; [HideInInspector] 
+    //ArrayList Enemy; [HideInInspector] 
 
     private IEnumerator spawnObstaculo(float intervalo, GameObject obstaculo)
     {
         yield return new WaitForSeconds(intervalo);
-        Instantiate(obstaculo, new Vector3(Random.Range(minX, maxX), Ypos, 0), Quaternion.identity);
+        Instantiate(obstaculo, new Vector3(Random.Range(minX, maxX), Ypos, 8), Quaternion.identity);
         StartCoroutine(spawnObstaculo(intervalo, obstaculo));
     }
 

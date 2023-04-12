@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float tiempo;
+    
+    public float tiempovivo = 0f;
+    public float tiempomaximodevida = 6f;
+    public float velocidad = 8f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +18,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tiempo = Time.deltaTime;
-        
-        if (tiempo > 6)
+        transform.position -= new Vector3(velocidad * (Time.deltaTime), 0, 0);
+        tiempovivo += Time.deltaTime;
+
+        if (tiempovivo >= tiempomaximodevida)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
