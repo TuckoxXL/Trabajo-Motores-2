@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiempovivo: 4
   tiempomaximodevida: 6
-  velocidad: 20
+  velocidad: 17
 --- !u!54 &4015672277299504380
 Rigidbody:
   m_ObjectHideFlags: 0
