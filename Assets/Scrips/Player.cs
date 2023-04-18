@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class Player : MonoBehaviour
     public float Forcemultiplier;
     public float jumforce;
     public bool canjump;
+    public bool isPower;
+    public Text powerText;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         canjump = true;
+        isPower = false;
     }
 
     // Update is called once per frame
@@ -45,9 +49,30 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("Derrota");
+           if (isPower == true)
+            {
+                Destroy (collision.gameObject);
+            } 
+           else
+            {
+                SceneManager.LoadScene("Derrota");
+            }
         }
     }
 
+    public void powerActive()
+    {
+        isPower = true;
+        powerText.text = "Poder Activo";
+        Invoke("powerInactive",4f);
+        Debug.Log("poder activo player");
+    }
 
+    public void powerInactive()
+    {
+      
+        isPower = false;
+        powerText.text = "";
+        Debug.Log("poder inactivo player");
+    }
 }
